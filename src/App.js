@@ -1,10 +1,33 @@
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import Counter from "./features/counter/Counter";
+import "./App.css";
+import ProductList from "./features/products/ProductList";
+import Home from "./pages/Home";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home></Home>,
+  },
+  {
+    path: "/login",
+    element: <LoginPage></LoginPage>,
+  },
+  {
+    path: "/signup",
+    element: <SignupPage></SignupPage>,
+  },
+]);
 
 function App() {
   return (
     <div className="App">
-      <Counter></Counter>
+      <RouterProvider router={router} />
     </div>
   );
 }
